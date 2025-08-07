@@ -30,6 +30,9 @@ wait
             mkdir -p /home/"$username"/Pictures/profile-image
         fi
         chown -R "$username":"$username" /home/"$username"/Pictures/profile-image
+    # Make Trash if not exists
+        mkdir --parents ~/.local/share/Trash/files
+        ln --symbolic ~/.local/share/Trash/files ~/.trash
 
 # Installing important things && stuff && some dependencies
     echo "Installing Programs and Drivers"
