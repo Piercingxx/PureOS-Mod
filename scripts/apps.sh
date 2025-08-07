@@ -46,6 +46,7 @@ wait
     flatpak install flathub org.gnome.SimpleScan -y
     flatpak install flathub org.qbittorrent.qBittorrent -y
     flatpak install flathub io.missioncenter.MissionCenter -y
+    flatpak install flathub com.github.tchx84.Flatseal -y
 
 # Nvim & Depends
     sudo apt install neovim -y
