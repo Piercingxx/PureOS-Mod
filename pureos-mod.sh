@@ -57,7 +57,7 @@ while true; do
     echo -e "${GREEN}Welcome ${username}${NC}\n"
     choice=$(menu)
     case $choice in
-        "Update System")
+        "Step 1")
             sudo apt update && upgrade -y
             wait
             sudo apt full-upgrade -y
@@ -90,14 +90,12 @@ while true; do
                 fi
             wait
             echo -e "${GREEN}System Updated Successfully!${NC}"
-            # Copy debian-maintenance.sh to home directory
+            # Copy maintenance-pureos.shh to home directory
                 cd scripts || exit
                 cp -f maintenance-pureos.sh /home/"$username"
                 chown "$username":"$username" /home/"$username"/debian-maintenance.sh
                 cd "$builddir" || exit
             echo -e "${GREEN}maintenance-pureos.sh Copied To Home Directory${NC}"
-            ;;
-        "Step 1")
             echo -e "${YELLOW}Installing Core Dependencies...${NC}"
                 cd scripts || exit
                 chmod u+x step-1.sh

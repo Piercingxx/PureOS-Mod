@@ -13,6 +13,30 @@ if [[ -n "$(command -v nmcli)" && "$(nmcli -t -f STATE g)" != connected ]]; then
     exit
 fi
 
+
+# Create Directories if needed
+    # font directory
+        if [ ! -d "$HOME/.fonts" ]; then
+            mkdir -p "$HOME/.fonts"
+        fi
+        chown -R "$username":"$username" "$HOME"/.fonts
+    # Background and Profile Image Directories
+        if [ ! -d "$HOME/$username/Pictures/backgrounds" ]; then
+            mkdir -p /home/"$username"/Pictures/backgrounds
+        fi
+        chown -R "$username":"$username" /home/"$username"/Pictures/backgrounds
+        if [ ! -d "$HOME/$username/Pictures/profile-image" ]; then
+            mkdir -p /home/"$username"/Pictures/profile-image
+        fi
+        chown -R "$username":"$username" /home/"$username"/Pictures/profile-image
+    # Make Trash if not exists
+        mkdir --parents ~/.local/share/Trash/files
+        ln --symbolic ~/.local/share/Trash/files ~/.trash
+
+
+
+
+
 # Update Repositories to PureOS Local
 sudo rm /etc/apt/sources.list && sudo touch /etc/apt/sources.list && sudo chmod +rwx /etc/apt/sources.list && sudo printf "deb https://repo.pureos.net/pureos byzantium main
 deb https://repo.pureos.net/pureos byzantium-security main
@@ -42,7 +66,6 @@ apt auto-remove -y
 wait
 
 echo "Install Essentials"
-  sudo apt install kitty -y
   sudo apt install zip unzip gzip tar -y
   sudo apt install make -y
   sudo apt install curl -y
