@@ -15,25 +15,6 @@ echo "Updating"
 sudo apt update && upgrade -y
 wait
 
-# Create Directories if needed
-    # font directory
-        if [ ! -d "$HOME/.fonts" ]; then
-            mkdir -p "$HOME/.fonts"
-        fi
-        chown -R "$username":"$username" "$HOME"/.fonts
-    # Background and Profile Image Directories
-        if [ ! -d "$HOME/$username/Pictures/backgrounds" ]; then
-            mkdir -p /home/"$username"/Pictures/backgrounds
-        fi
-        chown -R "$username":"$username" /home/"$username"/Pictures/backgrounds
-        if [ ! -d "$HOME/$username/Pictures/profile-image" ]; then
-            mkdir -p /home/"$username"/Pictures/profile-image
-        fi
-        chown -R "$username":"$username" /home/"$username"/Pictures/profile-image
-    # Make Trash if not exists
-        mkdir --parents ~/.local/share/Trash/files
-        ln --symbolic ~/.local/share/Trash/files ~/.trash
-
 # Installing important things && stuff && some dependencies
     echo "Installing Programs and Drivers"
     sudo apt install cups -y
