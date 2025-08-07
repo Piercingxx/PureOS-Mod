@@ -47,7 +47,6 @@ function menu() {
         "Step 2"                                "Install Applications and Utilities" \
         "PiercingXX Rice"                       "Apply Piercing Rice (Distro Agnostic)" \
         "Piercing Gimp"                         "Piercing Gimp Presets (Distro Agnostic)" \
-        "Beautiful Bash"                        "Chris Titus' Beautiful Bash Script" \
         "Reboot System"                         "Reboot the system" \
         "Exit"                                  "Exit the script" 3>&1 1>&2 2>&3
 }
@@ -144,9 +143,9 @@ while true; do
                     chown -R "$username":"$username" /home/"$username"/Downloads/refs
                     cp -Rf piercing-dots/refs/* /home/"$username"/Downloads/refs
                     chown -R "$username":"$username" /home/"$username"/Downloads/refs
-#                # Replace .bashrc
-#                    cp -Rf piercing-dots/bash/.bashrc /home/"$username"/
-#                    chown -R "$username":"$username" /home/"$username"/.bashrc
+                # Replace .bashrc
+                    cp -Rf piercing-dots/bash/.bashrc /home/"$username"/
+                    chown -R "$username":"$username" /home/"$username"/.bashrc
                 rm -rf piercing-dots
             echo -e "${GREEN}PiercingXX Rice Applied Successfully!${NC}"
             ;;
@@ -165,23 +164,6 @@ while true; do
                 else
                     echo -e "${RED}Failed to clone gimp-dots repository${NC}"
                 fi
-            ;;
-        "Beautiful Bash")
-            echo -e "${YELLOW}Installing Beautiful Bash...${NC}"
-                git clone https://github.com/christitustech/mybash
-                    chmod -R u+x mybash
-                    chown -R "$username":"$username" mybash
-                    cd mybash || exit
-                    ./setup.sh
-                    cd "$builddir" || exit
-                    rm -rf mybash
-                # Replace .bashrc
-                git clone https://github.com/Piercingxx/piercing-dots.git
-                    chmod -R u+x piercing-dots
-                    chown -R "$username":"$username" piercing-dots
-                    cp -Rf piercing-dots/bash/.bashrc /home/"$username"/
-                    chown -R "$username":"$username" /home/"$username"/.bashrc
-                rm -rf piercing-dots
             ;;
         "Reboot System")
             echo -e "${YELLOW}Rebooting system in 3 seconds...${NC}"
