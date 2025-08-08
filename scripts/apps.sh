@@ -29,6 +29,11 @@ wait
     flatpak install flathub io.missioncenter.MissionCenter -y
     flatpak install flathub com.github.tchx84.Flatseal -y
 
+# Waydroid
+    sudo apt install curl ca-certificates -y
+    curl -s https://repo.waydro.id | sudo bash
+    sudo apt install waydroid -y
+
 # Nvim & Depends
     sudo apt install neovim -y
     sudo apt install python3-pip -y
