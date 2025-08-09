@@ -33,19 +33,13 @@ fi
         mkdir --parents ~/.local/share/Trash/files
         ln --symbolic ~/.local/share/Trash/files ~/.trash
 
-
-
-
-
 # Update Repositories to PureOS Local
-sudo rm /etc/apt/sources.list && sudo touch /etc/apt/sources.list && sudo chmod +rwx /etc/apt/sources.list && sudo printf "deb https://repo.pureos.net/pureos byzantium main
-deb https://repo.pureos.net/pureos byzantium-security main
-deb https://repo.pureos.net/pureos byzantium-updates main
-deb https://mirrors.sonic.net/pureos/repo/pureos/ byzantium main" | sudo tee -a /etc/apt/sources.list
+# sudo rm /etc/apt/sources.list && sudo touch /etc/apt/sources.list && sudo chmod +rwx /etc/apt/sources.list && sudo printf "deb https://repo.pureos.net/pureos byzantium main
+# deb https://repo.pureos.net/pureos byzantium-security main
+# deb https://repo.pureos.net/pureos byzantium-updates main" | sudo tee -a /etc/apt/sources.list
 
 # Add Flathub Repo
 flatpak remote-add --if-not-exists --subset=floss flathub-floss https://flathub.org/repo/flathub.flatpakrepo
-
 
 # Overkill is underrated 
 apt update && upgrade -y
