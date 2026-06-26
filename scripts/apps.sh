@@ -23,7 +23,6 @@ wait
     sudo apt install fwupd -y
     sudo apt install w3m -y
     sudo apt install kitty -y
-    sudo flatpak install flathub io.missioncenter.MissionCenter -y
 
 # Waydroid - check if available in apt, otherwise install from repo
     if sudo apt install waydroid -y; then
@@ -59,7 +58,6 @@ wait
     ya pkg add AnirudhG07/rich-preview
     ya pkg add grappas/wl-clipboard
     ya pkg add Rolv-Apneseth/starship
-    ya pkg add yazi-rs/plugins:full-border
     ya pkg add uhs-robert/recycle-bin
     ya pkg add yazi-rs/plugins:diff
 
@@ -84,13 +82,6 @@ wait
     sudo systemctl enable --now tailscaled.service
     echo "Tailscale installed, please run 'sudo tailscale up' to login"
     cd $builddir || exit
-
-# Proton VPN
-    wget https://repo.protonvpn.com/debian/dists/unstable/main/binary-all/protonvpn-beta-release_1.0.8_all.deb
-    wait
-    sudo dpkg -i ./protonvpn-beta-release_1.0.8_all.deb && sudo apt update
-    sudo apt install proton-vpn-gnome-desktop -y
-    rm protonvpn-beta-release_1.0.8_all.deb
 
 # Overkill is underrated 
     sudo apt update && upgrade -y
